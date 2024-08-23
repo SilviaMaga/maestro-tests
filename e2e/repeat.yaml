@@ -1,0 +1,24 @@
+appId: com.qazandoqafood
+---
+- launchApp
+
+- tapOn:
+    id: "email"  # Toca no campo de e-mail
+- inputText:
+    id: "email"
+    text: "email_invalido@teste.com"  # Insere um e-mail inválido
+
+- tapOn:
+    id: "password"  # Toca no campo de senha
+- inputText:
+    id: "password"
+    text: "senha_incorreta"  # Insere uma senha incorreta
+
+- repeat:
+    while:
+      notVisible: "Erro ao realizar login"  # Repetir até que a mensagem de erro seja visível
+    commands:
+      - tapOn:
+          id: "login-button"  # Toca no botão de login repetidamente
+
+- assertVisible: "Erro ao realizar login"  # Verifica se a mensagem de erro está visível

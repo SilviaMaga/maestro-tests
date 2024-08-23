@@ -1,0 +1,20 @@
+appId: com.qazandoqafood
+---
+- launchApp
+- tapOn:
+    id: "email"
+- assertVisible: "E-mail"
+- inputText:
+    id: "email"
+    text: "teste@teste.com"
+- tapOn:
+    id: "password"
+- assertVisible: "Senha"
+- inputText:
+    id: "password"
+    text: "123456"
+- tapOn:
+    id: "login-button"
+- scrollUntilVisible:
+    element: "Shushi Home" # scrolar até estar visivel
+    direction: DOWN

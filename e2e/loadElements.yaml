@@ -1,0 +1,4 @@
+appId: com.qazandoqafood
+---
+- runScript: elements/login.js   # Carrega os elementos de login
+- runScript: elements/pedido.js  # Carrega os elementos relacionados ao pedido

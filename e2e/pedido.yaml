@@ -1,0 +1,45 @@
+appId: com.qazandoqafood
+---
+- launchApp  # Inicia o aplicativo
+
+- runFlow: login.yaml  # Executa o fluxo de comandos do arquivo "login.yaml" para realizar o login
+
+- runScript: elements/pedido.js  # Executa o script para carregar as variáveis do pedido
+
+- tapOn:
+    text: ${output.pedido.selectAddress}  # Toca na opção "Selecione seu endereço..."
+
+- assertVisible:
+    id: ${output.pedido.alertTitle}  # Verifica se o título do alerta está visível
+
+- tapOn:
+    id: ${output.pedido.alertButton}  # Toca no botão de confirmação do alerta
+
+- tapOn:
+    text: ${output.pedido.restaurantName}  # Toca na opção "Pastelaria da Maria"
+
+- tapOn:
+    id: ${output.pedido.firstItemTitle}  # Toca no título do primeiro item da lista
+    index: 0
+
+- tapOn:
+    point: "95%,43%"  # Toca em uma posição específica na tela (x: 95%, y: 43%)
+
+- tapOn:
+    id: ${output.pedido.cartButton}  # Toca no botão para abrir o carrinho
+
+- tapOn:
+    id: ${output.pedido.confirmOrderButton}  # Toca no botão para confirmar o pedido
+
+- scrollUntilVisible:
+    element: ${output.pedido.paymentOption}  # Rola a tela até que o elemento com o texto ou ID especificado esteja visível
+    direction: DOWN
+
+- tapOn:
+    text: ${output.pedido.paymentOption}  # Seleciona a opção de pagamento em dinheiro
+
+- tapOn:
+    id: ${output.pedido.finalizeOrderButton}  # Toca no botão para finalizar o pedido
+
+- tapOn:
+    text: ${output.pedido.orderSuccessMessage}  # Verifica se a mensagem "Pedido realizado" foi exibida

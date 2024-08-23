@@ -1,0 +1,22 @@
+appId: com.qazandoqafood
+---
+- launchApp
+
+- runScript: elements/login.js
+
+- tapOn:
+    id: ${output.login.email}  # Toca no campo de e-mail
+- assertVisible: ${output.login.emailLabel}  # Verifica se o rótulo "E-mail" está visível
+- inputText:
+    id: ${output.login.email}  # Insere o texto no campo de e-mail
+    text: "teste@teste.com"
+
+- tapOn:
+    id: ${output.login.password}  # Toca no campo de senha
+- assertVisible: ${output.login.passwordLabel}  # Verifica se o rótulo "Senha" está visível
+- inputText:
+    id: ${output.login.password}  # Insere o texto no campo de senha
+    text: "123456"
+
+- tapOn:
+    id: ${output.login.loginBtn}  # Toca no botão de login
